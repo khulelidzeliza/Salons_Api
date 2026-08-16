@@ -6,4 +6,18 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Auth\VerifyEmail\" />
+    <Folder Include="Features\Auth\ResetPassword\" />
+    <Folder Include="Features\Auth\Login\" />
+    <Folder Include="Features\Auth\Register\" />
+    <Folder Include="Features\Favorites\CreateFavorite\" />
+    <Folder Include="Features\Organization\DeleteOrganization\" />
+    <Folder Include="Features\Organization\UpdateOrganization\" />
+    <Folder Include="Features\Organization\CreateOrganization\" />
+    <Folder Include="Features\Review\CreateReview\" />
+    <Folder Include="Features\User\DeleteUser\" />
+    <Folder Include="Features\User\UpdateUser\" />
+  </ItemGroup>
+
 </Project>
