@@ -1,4 +1,5 @@
-﻿namespace Salons_Project.Application
+﻿
+namespace Salons_Project.Application
 {
     public class Class1
     {
