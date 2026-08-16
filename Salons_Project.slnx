@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Salons_Project.Application/Salons_Project.Application.csproj" />
+  <Project Path="Salons_Project.Domain/Salons_Project.Domain.csproj" />
+  <Project Path="Salons_Project.Infrastructure/Salons_Project.Infrastructure.csproj" />
+  <Project Path="Salons_Project/Salons_Project.Api.csproj" />
+</Solution>
