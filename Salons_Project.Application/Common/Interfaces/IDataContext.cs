@@ -2,9 +2,8 @@
 
 
 
-namespace Salons_Project.Application.Common.Interfaces
+namespace Salons_Project.Application.Common.Interfaces;
+
+public interface IDataContext 
 {
-    public interface IDataContext
-    {
-    }
 }
