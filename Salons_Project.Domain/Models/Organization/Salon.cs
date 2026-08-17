@@ -1,6 +1,7 @@
 ﻿using Salons_Project.Domain.Common;
 using Salons_Project.Domain.Enums.Organization;
 using Salons_Project.Domain.Models.Content;
+using Salons_Project.Domain.Models.Users;
 
 namespace Salons_Project.Domain.Models.Organization;
 
