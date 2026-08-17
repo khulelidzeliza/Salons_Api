@@ -5,6 +5,7 @@ using Salons_Project.Infrastructure.Auth.Jwt;
 using Salons_Project.Infrastructure.Smtp;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
+using Salons_Project.Infrastructure.Smtp.Templates;
 
 namespace Salons_Project.Infrastructure;
 
@@ -21,7 +22,7 @@ public static class DependencyInjection
 
         services.AddScoped< ISmtpService , SmtpService>();
         services.AddScoped<IJwtService, JwtService>();
-
+        services.AddScoped<IEmailTemplatesService, EmailTemplateService>();
         return services;
     }
 }
