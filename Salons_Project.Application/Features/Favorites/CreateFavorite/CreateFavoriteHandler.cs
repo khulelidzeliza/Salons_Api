@@ -1,12 +1,8 @@
-﻿
-
-
-
-using MediatR;
-using Microsoft.EntityFrameworkCore;
-using Salons_Project.Application.Common.Interfaces;
+﻿using Salons_Project.Application.Common.Interfaces;
 using Salons_Project.Domain.Common.Results;
 using Salons_Project.Domain.Models.Content;
+using Microsoft.EntityFrameworkCore;
+using MediatR;
 
 namespace Salons_Project.Application.Features.Favorites.CreateFavorite;
 public class SaveBlogCommandHandler : IRequestHandler<CreateFavoriteCommand, Result>
