@@ -1,0 +1,24 @@
+﻿using Salons_Project.Domain.Models.Users;
+
+namespace Salons_Project.Api.Controllers.graphql.users;
+
+public sealed class UserType : ObjectType<User>
+{
+    protected override void Configure(IObjectTypeDescriptor<User> descriptor)
+    {
+        descriptor.Field(e => e.Id);
+        descriptor.Field(e => e.Role);
+        descriptor.Field(e => e.UserName);
+
+        descriptor
+            .Field(e => e.Email)
+            .Type<NonNullType<StringType>>()
+            .Resolve(e => e.Parent<User>().Email.Value);
+
+        descriptor.Ignore(e => e.Password);
+        descriptor.Ignore(e => e.EmailVerification);
+        descriptor.Ignore(e => e.PasswordEmailVerification);
+    }
+}
+
+
