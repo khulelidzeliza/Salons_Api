@@ -23,6 +23,8 @@ public class User : BaseEntity
     public List<Salon> Salons { get; set; } = new();
     public List<Review> Reviews { get; set; } = new();
     public List<Favorite> Favorites { get; set; } = new();
+    public List<int> FavoritedSalons { get; private set; } = new();
+
     public EmailVerification EmailVerification { get; private set; }
     public PasswordVerification PasswordEmailVerification { get; private set; }
     private User() { }
@@ -61,4 +63,19 @@ public class User : BaseEntity
     public void SetPasswordEmailVerification(PasswordVerification verification)
         => PasswordEmailVerification = verification;
 
+
+
+
+    public void FavoriteSalon(int salonId)
+    {
+        if (!FavoritedSalons.Contains(salonId))
+        {
+            FavoritedSalons.Add(salonId);
+        }
+    }
+
+    public void UnFavoriteSalon(int salonId)
+    {
+        FavoritedSalons.Remove(salonId);
+    }
 }

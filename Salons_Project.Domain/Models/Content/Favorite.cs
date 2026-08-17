@@ -6,6 +6,6 @@ namespace Salons_Project.Domain.Models.Content;
 
 public class Favorite : BaseEntity
 {
-    public string UserId { get; set; }
-    public string SalonId { get; set; }
+    public int UserId { get; set; }
+    public int SalonId { get; set; }
 }
