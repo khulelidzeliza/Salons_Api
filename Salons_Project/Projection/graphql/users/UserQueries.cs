@@ -5,7 +5,7 @@ using Salons_Project.Domain.Models.Users;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
 
-namespace Salons_Project.Api.Controllers.graphql.users;
+namespace Salons_Project.Api.Projection.graphql.users;
 
 
 [QueryType]

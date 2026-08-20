@@ -1,6 +1,6 @@
 ﻿using Salons_Project.Domain.Models.Users;
 
-namespace Salons_Project.Api.Controllers.graphql.users;
+namespace Salons_Project.Api.Projection.graphql.users;
 
 public sealed class UserType : ObjectType<User>
 {

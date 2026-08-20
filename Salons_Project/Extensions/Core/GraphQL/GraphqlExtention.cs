@@ -1,5 +1,5 @@
-﻿using Salons_Project.Api.Controllers.graphql.users;
-using Salons_Project.Api.Filters;
+﻿using Salons_Project.Api.Filters;
+using Salons_Project.Api.Projection.graphql.users;
 
 namespace Salons_Project.Api.Extensions.Core.GraphQL;
 
