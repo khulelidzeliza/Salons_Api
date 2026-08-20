@@ -7,15 +7,38 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Emails\Auth\ResetPassword.cshtml" />
+    <Content Remove="Emails\Auth\VerificationEmail.cshtml" />
+  </ItemGroup>
+
+	<PropertyGroup>
+		<PreserveCompilationContext>true</PreserveCompilationContext>
+	</PropertyGroup>
+  <ItemGroup>
+    <None Include="Emails\Auth\ResetPassword.cshtml" />
+    <None Include="Emails\Auth\VerificationEmail.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="10.2.3" />
 	  <PackageReference Include="HotChocolate.AspNetCore" Version="16.0.0-p.10.1" />
 	  <PackageReference Include="HotChocolate.AspNetCore.Authorization" Version="16.0.0-p.10.1" />
 	  <PackageReference Include="HotChocolate.Data" Version="16.0.0-p.10.1" />
   </ItemGroup>
-
   <ItemGroup>
+    <ProjectReference Include="..\Salons_Project.Application\Salons_Project.Application.csproj" />
     <ProjectReference Include="..\Salons_Project.Infrastructure\Salons_Project.Infrastructure.csproj" />
   </ItemGroup>
 

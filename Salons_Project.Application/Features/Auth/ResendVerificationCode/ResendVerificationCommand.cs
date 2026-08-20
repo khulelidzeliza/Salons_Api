@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Salons_Project.Application.Features.Auth.VerifyEmail.Verification;
+namespace Salons_Project.Application.Features.Auth.ResendVerificationCode;
 
 public sealed record ResendVerificationCommand(
    string Email) : IRequest<Result<bool>>;

@@ -26,6 +26,7 @@ public class RegisterHandler : IRequestHandler<RegisterCommand, Result>
     {
         var userResult = User.Create(req.Username, req.Email);
         if (!userResult.IsSuccess) return Result.Failure(userResult.Error!);
+        if (req.Email != null) return Result.Failure(Errors.AlreadyExists());
 
         var user = userResult.Value!;
         user.SetPassword(BCrypt.Net.BCrypt.HashPassword(req.Password));

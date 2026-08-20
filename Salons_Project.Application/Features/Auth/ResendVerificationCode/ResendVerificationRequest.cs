@@ -1,6 +1,4 @@
-﻿
-
-namespace Salons_Project.Application.Features.Auth.VerifyEmail.Verification;
+﻿namespace Salons_Project.Application.Features.Auth.ResendVerificationCode;
 
 public class ResendVerificationRequest
 {

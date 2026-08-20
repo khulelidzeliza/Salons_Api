@@ -1,11 +1,11 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
-using Salons_Project.Application.Features.Auth.VerifyEmail.Verification;
 using Salons_Project.Application.Features.Auth.ResetPassword;
 using Salons_Project.Application.Features.Auth.VerifyEmail;
 using Salons_Project.Application.Features.Auth.Register;
 using Salons_Project.Application.Features.Auth.Login;
 using Microsoft.AspNetCore.Mvc;
+using Salons_Project.Application.Features.Auth.ResendVerificationCode;
 
 namespace Salons_Project.Api.Projection.Controllers;
 

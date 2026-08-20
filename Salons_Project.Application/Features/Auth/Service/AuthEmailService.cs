@@ -40,7 +40,7 @@ public sealed class AuthEmailService : IAuthEmailService
             verification.Code
         );
 
-        string emailHtml = await _template.GenerateEmailAsync("Auth/EmailVerification.cshtml", template);
+        string emailHtml = await _template.GenerateEmailAsync("Auth/VerificationEmail.cshtml", template);
 
         await _email.SendEmail("Email verification", emailHtml, user.Email.Value);
 
@@ -61,7 +61,7 @@ public sealed class AuthEmailService : IAuthEmailService
             user.UserName
         );
 
-        string emailHtml = await _template.GenerateEmailAsync("Auth/PasswordReset.cshtml", template);
+        string emailHtml = await _template.GenerateEmailAsync("Auth/ResetPassword.cshtml", template);
 
         await _email.SendEmail("Reset Password", emailHtml, user.Email.Value);
 

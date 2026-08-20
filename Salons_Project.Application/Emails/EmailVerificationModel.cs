@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace Salons_Project.Application.Emails;
 public sealed record EmailVerificationModel(
     string VerificationLink,
@@ -11,5 +8,5 @@ public sealed record EmailVerificationModel(
 
 public sealed record ResetPasswordModel(
     string ResetLink,
-    string Username
+    string UserName
 );

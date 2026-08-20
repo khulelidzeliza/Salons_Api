@@ -1,7 +1,7 @@
 ﻿
 namespace Salons_Project.Domain.Common;
 
-public class Verification
+public class Verification : BaseEntity
 {
     public DateTime ExpiredAt { get; protected set; } = DateTime.UtcNow.AddMinutes(15);
     public string Code { get; protected set; } = string.Empty;
