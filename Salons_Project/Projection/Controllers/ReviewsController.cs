@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Salons_Project.Api.Controllers
+namespace Salons_Project.Api.Projection.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FavoritesController : ControllerBase
+    public class ReviewsController : ControllerBase
     {
     }
 }
