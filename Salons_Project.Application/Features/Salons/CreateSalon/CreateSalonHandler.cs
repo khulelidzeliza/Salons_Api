@@ -19,7 +19,8 @@ public class CreateSalonHandler : IRequestHandler<CreateSalonCommand, Result>
     public async Task<Result> Handle(CreateSalonCommand req, CancellationToken ct)
     {
         var userExists = await _db.Users.AnyAsync(u => u.Id == req.UserId, ct);
-        if (!userExists) return Result.Failure(Errors.Invalid("This account has already been verified."));
+
+        if(!userExists) return Result.Failure(Errors.NotFound("User not found."));
 
         var salon = new Salon
         {

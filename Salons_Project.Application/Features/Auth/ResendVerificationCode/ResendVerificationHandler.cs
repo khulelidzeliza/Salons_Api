@@ -9,7 +9,7 @@ using System.Text;
 
 namespace Salons_Project.Application.Features.Auth.ResendVerificationCode
 {
-    internal class ResendVerificationHandler : IRequestHandler<ResendVerificationCommand, Result<bool>>
+    public class ResendVerificationHandler : IRequestHandler<ResendVerificationCommand, Result<bool>>
     {
         private readonly IDataContext _db;
         private readonly IAuthEmailService _email;

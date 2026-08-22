@@ -4,7 +4,7 @@ using MediatR;
 
 namespace Salons_Project.Application.Features.Organization.Queries.GetOrganization;
 
-internal class GetSalonByIdHandler : IRequestHandler<GetSalonByIdQueryable, IQueryable<Salon>>
+public class GetSalonByIdHandler : IRequestHandler<GetSalonByIdQueryable, IQueryable<Salon>>
 {
     private readonly IDataContext _db;
 
