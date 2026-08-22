@@ -1,4 +1,5 @@
 ﻿using Salons_Project.Api.Filters;
+using Salons_Project.Api.Projection.graphql.salons;
 using Salons_Project.Api.Projection.graphql.users;
 
 namespace Salons_Project.Api.Extensions.Core.GraphQL;
@@ -20,7 +21,9 @@ public static class GraphqlExtention
                 .AddQueryType()
                 .AddSorting()
                 .AddTypeExtension<UserQueries>()
+                .AddTypeExtension<SalonQueries>()
                 .AddType<UserType>()
+                .AddType<SalonType>()
             ;
 
 

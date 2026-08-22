@@ -63,9 +63,6 @@ public class User : BaseEntity
     public void SetPasswordEmailVerification(PasswordVerification verification)
         => PasswordEmailVerification = verification;
 
-
-
-
     public void FavoriteSalon(int salonId)
     {
         if (!FavoritedSalons.Contains(salonId))

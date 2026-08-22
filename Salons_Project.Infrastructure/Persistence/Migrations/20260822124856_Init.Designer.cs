@@ -13,7 +13,7 @@ using Salons_Project.Infrastructure.Persistence;
 namespace Salons_Project.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20260820144219_Init")]
+    [Migration("20260822124856_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -110,15 +110,27 @@ namespace Salons_Project.Infrastructure.Persistence.Migrations
                     b.Property<int>("SalonId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("SalonId1")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("UserId1")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("SalonId");
+
+                    b.HasIndex("SalonId1");
+
                     b.HasIndex("UserId");
+
+                    b.HasIndex("UserId1");
 
                     b.ToTable("Favorites");
                 });
@@ -213,9 +225,6 @@ namespace Salons_Project.Infrastructure.Persistence.Migrations
 
                     b.Property<string>("InstagramLink")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsFavorited")
-                        .HasColumnType("bit");
 
                     b.Property<string>("Location")
                         .IsRequired()
@@ -337,11 +346,29 @@ namespace Salons_Project.Infrastructure.Persistence.Migrations
 
             modelBuilder.Entity("Salons_Project.Domain.Models.Content.Favorite", b =>
                 {
-                    b.HasOne("Salons_Project.Domain.Models.Users.User", null)
-                        .WithMany("Favorites")
-                        .HasForeignKey("UserId")
+                    b.HasOne("Salons_Project.Domain.Models.Organization.Salon", "Salon")
+                        .WithMany()
+                        .HasForeignKey("SalonId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("Salons_Project.Domain.Models.Organization.Salon", null)
+                        .WithMany("Favorites")
+                        .HasForeignKey("SalonId1");
+
+                    b.HasOne("Salons_Project.Domain.Models.Users.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("Salons_Project.Domain.Models.Users.User", null)
+                        .WithMany("Favorites")
+                        .HasForeignKey("UserId1");
+
+                    b.Navigation("Salon");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Salons_Project.Domain.Models.Content.Review", b =>
@@ -379,6 +406,8 @@ namespace Salons_Project.Infrastructure.Persistence.Migrations
 
             modelBuilder.Entity("Salons_Project.Domain.Models.Organization.Salon", b =>
                 {
+                    b.Navigation("Favorites");
+
                     b.Navigation("Procedures");
 
                     b.Navigation("Reviews");
