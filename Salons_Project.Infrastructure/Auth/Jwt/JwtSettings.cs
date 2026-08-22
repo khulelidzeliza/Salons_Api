@@ -7,5 +7,4 @@ public class JwtSettings
     public string Audience { get; init; } = "";
     public string Key { get; init; } = "";
     public int AccessTokenMinutes { get; init; } = 1200;
-    public int RefreshTokenDays { get; init; } = 30;
 }

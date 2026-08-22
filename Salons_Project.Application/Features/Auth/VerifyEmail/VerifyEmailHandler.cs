@@ -61,6 +61,6 @@ public sealed class VerifyEmailHandler : IRequestHandler<VerifyEmailCommand, Res
         var refreshToken = _jwt.GeneratePasswordResetToken(user);
         var accessToken = _jwt.GenerateAccessToken(user);
 
-        return Result<TokenResponse>.Success(new TokenResponse(accessToken, refreshToken));
+        return Result<TokenResponse>.Success(new TokenResponse(accessToken));
     }
 }

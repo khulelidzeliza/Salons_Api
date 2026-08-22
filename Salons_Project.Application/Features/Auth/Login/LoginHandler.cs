@@ -49,12 +49,11 @@ public sealed class LoginHandler : IRequestHandler<LoginCommand, Result<TokenRes
             _db.EmailVerifications.Add(verification);
             await _db.SaveChangesAsync(ct);
 
-            return Result<TokenResponse>.Success(new TokenResponse("Verification", "Verification"));
+            return Result<TokenResponse>.Success(new TokenResponse("Verification"));
         }
 
         string accessToken = _jwt.GenerateAccessToken(user);
-        string refreshToken = _jwt.GenerateAccessToken(user);
 
-        return Result<TokenResponse>.Success(new TokenResponse(accessToken, refreshToken));
+        return Result<TokenResponse>.Success(new TokenResponse(accessToken));
     }
 }
