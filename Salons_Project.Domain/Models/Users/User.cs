@@ -26,7 +26,7 @@ public class User : BaseEntity
     public List<int> FavoritedSalons { get; private set; } = new();
 
     public EmailVerification EmailVerification { get; private set; }
-    public PasswordVerification PasswordEmailVerification { get; private set; }
+    public PasswordVerification PasswordEmailVerification { get; private set; } 
     private User() { }
 
     public User(string username, Email email)

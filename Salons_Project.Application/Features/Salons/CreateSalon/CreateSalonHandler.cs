@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Salons_Project.Application.Common.Contracts;
 using Salons_Project.Application.Common.Interfaces;
@@ -21,6 +22,7 @@ public class CreateSalonHandler : IRequestHandler<CreateSalonCommand, Result>
         var userExists = await _db.Users.AnyAsync(u => u.Id == req.UserId, ct);
 
         if(!userExists) return Result.Failure(Errors.NotFound("User not found."));
+        var filepaths = await UploadPictures(req.Pictures);
 
         var salon = new Salon
         {
@@ -32,7 +34,7 @@ public class CreateSalonHandler : IRequestHandler<CreateSalonCommand, Result>
             FacebookLink = req.FacebookLink ?? "",
             InstagramLink = req.InstagramLink ?? "",
             UserId = req.UserId,
-            Pictures = req.Pictures ?? new(),
+            Pictures = filepaths ,
             WorkingHours = req.workingHours ?? "",
         };
 
@@ -40,5 +42,29 @@ public class CreateSalonHandler : IRequestHandler<CreateSalonCommand, Result>
         await _db.SaveChangesAsync(ct);
 
         return Result.Success();
+    }
+
+    public async Task<List<string>> UploadPictures(List<IFormFile> pics)
+    {
+        var filenames = new List<string>();
+
+        if(pics is null || pics.Count == 0) return filenames;
+
+        var upload = Path.Combine(Directory.GetCurrentDirectory(), "uploads", "salons");
+        Directory.CreateDirectory(upload);
+
+        foreach (var pic in pics)
+        {
+            if (pic.Length == 0) continue;
+
+            var file = $"{Guid.NewGuid()}{Path.GetExtension(pic.FileName)}";
+            var path = Path.Combine(upload, file);
+
+            using var stream = new FileStream(path, FileMode.Create);
+            await pics[0].CopyToAsync(stream);
+
+            filenames.Add($"/uploads/salons/{file}");
+        }
+            return filenames;
     }
 }

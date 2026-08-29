@@ -1,6 +1,7 @@
-﻿using Salons_Project.Domain.Common.Results;
+﻿using MediatR;
+using Microsoft.AspNetCore.Http;
+using Salons_Project.Domain.Common.Results;
 using Salons_Project.Domain.Enums.Organization;
-using MediatR;
 
 namespace Salons_Project.Application.Features.Organization.CreateOrganization;
 public sealed record CreateSalonCommand(
@@ -11,7 +12,7 @@ public sealed record CreateSalonCommand(
     BudgetLevel Price,
     string? FacebookLink,
     string? InstagramLink,
-    List<string>? Pictures,
+    List<IFormFile>? Pictures,
     int UserId,
     string workingHours
 ) : IRequest<Result>;
