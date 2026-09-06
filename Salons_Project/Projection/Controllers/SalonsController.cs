@@ -18,7 +18,7 @@ public class SalonsController : ControllerBase
     [HttpPost("add-salon")]
     public async Task<IActionResult> AddSalon([FromForm] CreateSalonRequest req, CancellationToken ct)
     {
-        //var userid = this.GetUserId();
+        var userid = this.GetUserId();
 
         var cmd = new CreateSalonCommand(
             req.Name,
@@ -32,10 +32,10 @@ public class SalonsController : ControllerBase
             req.UserId,
             req.WorkingHours
         );
-        //var updatedCmd = cmd with { UserId = userid };
+        var updatedCmd = cmd with { UserId = userid };
 
-        //var result = await _mediator.Send(updatedCmd, ct);
-        var result = await _mediator.Send(cmd, ct);
+        var result = await _mediator.Send(updatedCmd, ct);
+
         return Ok(result);
     }   
 

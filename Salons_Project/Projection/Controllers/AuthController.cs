@@ -20,7 +20,7 @@ public class AuthController : ControllerBase
     [HttpPost("register")]
     public async Task<IActionResult> Register(RegisterRequest req, CancellationToken ct)
     {
-        var cmd = new RegisterCommand(req.UserName, req.Email, req.Password, req.Age , req.PhoneNumber);
+        var cmd = new RegisterCommand(req.UserName, req.Email, req.Password, req.Age , req.PhoneNumber , req.Role);
 
         var result = await _mediator.Send(cmd, ct);
 

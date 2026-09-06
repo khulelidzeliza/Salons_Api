@@ -1,4 +1,5 @@
 ﻿using Salons_Project.Domain.Common.ValueObjects.Users;
+using Salons_Project.Domain.Enums.User;
 
 namespace Salons_Project.Application.Features.Auth.Register;
 
@@ -8,6 +9,8 @@ public class RegisterRequest
     public string Email { get; set; } = string.Empty;
     public string UserName { get; set; }
     public string Password { get; set; }
-    public string? PhoneNumber { get; set; } 
+    public string? PhoneNumber { get; set; }
+    public Roles Role { get; set; } = Roles.User;
+
 
 }
