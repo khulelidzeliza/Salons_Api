@@ -15,4 +15,4 @@ public class SalonFilterType : FilterInputType<Salon>
         descriptor.Field(s => s.Procedures)
             .Type<ListFilterInputType<ProcedureFilterType>>();
     }
-}
+}  

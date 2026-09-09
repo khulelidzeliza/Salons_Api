@@ -24,10 +24,10 @@ public class SalonType : ObjectType<Salon>
         descriptor.Field(s => s.Reviews);
         descriptor.Field(s => s.Procedures);
         descriptor.Field(s => s.UserId);
-     
-        
+
+
         descriptor.Field("AverageRating")
-             .Type<FloatType>()
+            .Type<FloatType>()
              .Resolve(ctx =>
              {
                  var salon = ctx.Parent<Salon>();

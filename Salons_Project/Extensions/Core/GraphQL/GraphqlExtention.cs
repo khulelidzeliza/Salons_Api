@@ -14,6 +14,7 @@ public static class GraphqlExtention
                 .ModifyPagingOptions(opt => opt.IncludeTotalCount = true)
                 .AddErrorFilter<GraphQlErrorFilter>()
                 .AddPagingArguments()
+                .ModifyCostOptions(options => options.MaxFieldCost = 10_000)
                 .AddAuthorization()
                 //.AddMutationType()
                 .AddProjections()

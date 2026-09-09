@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using HotChocolate.CostAnalysis.Types;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Salons_Project.Application.Features.Organization.Queries.GetOrganization;
 using Salons_Project.Application.Features.Organization.Queries.GetOrganizations;
@@ -31,15 +32,17 @@ namespace Salons_Project.Api.Projection.graphql.salons
 
         }
 
-        [UseProjection] [UseSorting]
+        [UseProjection]
+        [UseSorting]
         [UseFiltering(typeof(SalonFilterType))]
-
+        [ListSize(AssumedSize = 50)]
         public async Task<IQueryable<Salon>> getSalons(
-            IMediator mediator,
-            CancellationToken ct)
+             IMediator mediator,
+             CancellationToken ct)
         {
             return await mediator.Send(new GetSalonsQueryable(), ct);
         }
+
         [UseProjection]
         public async Task<IQueryable<Salon>> getSalonById(
             int id,
