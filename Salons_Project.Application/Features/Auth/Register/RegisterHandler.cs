@@ -29,7 +29,7 @@ public class RegisterHandler : IRequestHandler<RegisterCommand, Result>
 
         if (emailTaken)
             return Result.Failure(Errors.AlreadyExists());
-        var userResult = User.Create(req.Username, req.Email);
+        var userResult = User.Create(req.Username, req.Email , req.Role);
         if (!userResult.IsSuccess) return Result.Failure(userResult.Error!);
 
         var user = userResult.Value!;

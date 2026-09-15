@@ -31,9 +31,7 @@ namespace Salons_Project.Api.Projection.graphql.salons
 
         }
 
-        [UseProjection] [UseSorting]
-        [UseFiltering(typeof(SalonFilterType))]
-
+        [UseProjection]
         public async Task<IQueryable<Salon>> getSalons(
             IMediator mediator,
             CancellationToken ct)

@@ -4,5 +4,5 @@ public enum Roles
 {
     User,
     Admin,
-    Organizator
+    Organizator,
 }

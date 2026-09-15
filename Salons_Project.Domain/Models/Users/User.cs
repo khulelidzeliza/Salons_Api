@@ -18,7 +18,6 @@ public class User : BaseEntity
     public string? PhoneNumber { get; set; }
     public bool IsVerified { get; set; } = false;
     public Roles Role { get; set; } = Roles.User;
-    public Genders Gender { get; set; } = Genders.Other;
 
     public List<Salon> Salons { get; set; } = new();
     public List<Review> Reviews { get; set; } = new();
@@ -29,12 +28,13 @@ public class User : BaseEntity
     public PasswordVerification PasswordEmailVerification { get; private set; } 
     private User() { }
 
-    public User(string username, Email email)
+    public User(string username, Email email , Roles role)
     {
         UserName = username;
         Email = email;
+        Role = role;
     }
-    public static Result<User> Create(string username, string email)
+    public static Result<User> Create(string username, string email ,Roles roles)
     {
         var firstNameResult = Guard.AgainstStringRange(username, 2, 40,
             Errors.Invalid("Username must be between 4 and 60 characters"));
@@ -45,7 +45,7 @@ public class User : BaseEntity
 
         if (!emailResult.IsSuccess) return Result<User>.Failure(emailResult.Error!);
 
-        return Result<User>.Success(new User(username, emailResult.Value!));
+        return Result<User>.Success(new User(username, emailResult.Value! , roles));
     }
     public void SetPassword(string password) => Password = password;
 
