@@ -12,6 +12,7 @@ public class SalonFilterType : FilterInputType<Salon>
         descriptor.Field(s => s.Location);
         descriptor.Field(s => s.Price);
 
+
         descriptor.Field(s => s.Procedures)
             .Type<ListFilterInputType<ProcedureFilterType>>();
     }
