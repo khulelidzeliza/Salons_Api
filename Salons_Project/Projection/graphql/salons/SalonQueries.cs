@@ -6,6 +6,7 @@ using Salons_Project.Application.Features.Salons.Queries.GetMySalons;
 using Salons_Project.Domain.Models.Organization;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
+using HotChocolate.CostAnalysis.Types;
 
 namespace Salons_Project.Api.Projection.graphql.salons
 {
@@ -32,12 +33,16 @@ namespace Salons_Project.Api.Projection.graphql.salons
         }
 
         [UseProjection]
+        [UseSorting]
+        [UseFiltering(typeof(SalonFilterType))]
+        [ListSize(AssumedSize = 50)]
         public async Task<IQueryable<Salon>> getSalons(
             IMediator mediator,
             CancellationToken ct)
         {
             return await mediator.Send(new GetSalonsQueryable(), ct);
         }
+        
         [UseProjection]
         public async Task<IQueryable<Salon>> getSalonById(
             int id,

@@ -42,7 +42,7 @@ public class SalonsController : ControllerBase
     [HttpPost("add-procedure")]
     public async Task<IActionResult> AddProcedure([FromForm] AddProcedureRequest req, CancellationToken ct)
     {
-        //var userid = this.GetUserId();
+        var userid = this.GetUserId();
 
         var cmd = new AddProcedureCommand(
             req.userid,
@@ -51,10 +51,10 @@ public class SalonsController : ControllerBase
             req.Masters,    
             req.FinishedWorks
         );
-        //var updatedCmd = cmd with { userid = userid };
-        var result = await _mediator.Send(cmd, ct);
+        var updatedCmd = cmd with { userid = userid };
+        //var result = await _mediator.Send(cmd, ct);
 
-        //var result = await _mediator.Send(updatedCmd, ct);
+        var result = await _mediator.Send(updatedCmd, ct);
         return Ok(result);
     }
 }

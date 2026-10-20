@@ -18,7 +18,7 @@ public class User : BaseEntity
     public string? PhoneNumber { get; set; }
     public bool IsVerified { get; set; } = false;
     public Roles Role { get; set; } = Roles.User;
-
+    public Genders Gender { get; set; } = Genders.Other;
     public List<Salon> Salons { get; set; } = new();
     public List<Review> Reviews { get; set; } = new();
     public List<Favorite> Favorites { get; set; } = new();
