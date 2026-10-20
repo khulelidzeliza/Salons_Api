@@ -36,6 +36,7 @@
 	  <PackageReference Include="HotChocolate.AspNetCore" Version="16.0.0-p.10.1" />
 	  <PackageReference Include="HotChocolate.AspNetCore.Authorization" Version="16.0.0-p.10.1" />
 	  <PackageReference Include="HotChocolate.Data" Version="16.0.0-p.10.1" />
+	  <PackageReference Include="System.Security.Cryptography.Pkcs" Version="11.0.0-rc.2.26504.105" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Salons_Project.Application\Salons_Project.Application.csproj" />
