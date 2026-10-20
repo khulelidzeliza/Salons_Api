@@ -13,6 +13,7 @@ public static class ApplicationExtensions
             app.UseSwaggerUI();
         }
 
+        
 
         app.UseCors();
 
