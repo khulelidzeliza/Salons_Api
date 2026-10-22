@@ -5,7 +5,8 @@ using Salons_Project.Application.Features.Organization.DeleteSalon;
 using Salons_Project.Application.Features.Salons.AddProcedures;
 
 namespace Salons_Project.Api.Projection.Controllers;
-
+[Route("api/[controller]")]
+[ApiController]
 public class ProcedureController : Controller
 {
     private readonly IMediator _mediator;
