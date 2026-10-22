@@ -5,7 +5,8 @@ using Salons_Project.Domain.Enums.Organization;
 
 namespace Salons_Project.Application.Features.Organization.CreateOrganization;
 public sealed record CreateSalonCommand(
-    string Name,
+    string georgianName,
+    string englishName,
     string Location,
     string PhoneNumber,
     string Email,

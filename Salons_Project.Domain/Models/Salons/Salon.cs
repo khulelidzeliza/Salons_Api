@@ -7,7 +7,8 @@ namespace Salons_Project.Domain.Models.Organization;
 
 public class Salon : BaseEntity
 {
-    public string Name { get; set; }
+    public string GeorgianName { get; set; }
+    public string EnglishName { get; set; }
     public string Email { get; set; }
     public string Location { get; set; }
     public string PhoneNumber { get; set; }

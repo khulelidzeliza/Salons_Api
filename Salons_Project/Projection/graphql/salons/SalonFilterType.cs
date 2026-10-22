@@ -8,7 +8,7 @@ public class SalonFilterType : FilterInputType<Salon>
 {
     protected override void Configure(IFilterInputTypeDescriptor<Salon> descriptor)
     {
-        descriptor.Field(s => s.Name);
+        descriptor.Field(s => s.GeorgianName);
         descriptor.Field(s => s.Location);
         descriptor.Field(s => s.Price);
 

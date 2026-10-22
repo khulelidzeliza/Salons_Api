@@ -9,7 +9,7 @@ public class SalonType : ObjectType<Salon>
     protected override void Configure(IObjectTypeDescriptor<Salon> descriptor)
     {
         descriptor.Field(s => s.Id);
-        descriptor.Field(s => s.Name);
+        descriptor.Field(s => s.GeorgianName);
         descriptor.Field(s => s.Location);
         descriptor.Field(s => s.PhoneNumber);
         descriptor.Field(s => s.Email);

@@ -19,4 +19,8 @@
     <ProjectReference Include="..\Salons_Project.Domain\Salons_Project.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Procedures\EditProcedure\" />
+  </ItemGroup>
+
 </Project>
