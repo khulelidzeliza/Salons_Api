@@ -10,7 +10,6 @@ public sealed record UpdateSalonCommand(
     BudgetLevel Price,
     string? FacebookLink,
     string? InstagramLink,
-    List<IFormFile>? Pictures,
     string GeorgianName,
     string EnglishName,
     string Email,

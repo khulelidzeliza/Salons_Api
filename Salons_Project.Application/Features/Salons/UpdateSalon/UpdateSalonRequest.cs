@@ -9,7 +9,6 @@ public class UpdateSalonRequest
     public BudgetLevel Price { get; set; }
     public string? FacebookLink { get; set; }
     public string? InstagramLink { get; set; }
-    public List<IFormFile>? Pictures { get; set; }
     public string GeorgianName { get; set; }
     public string EnglishName { get; set; }
     public string Email { get; set; } = string.Empty;

@@ -66,7 +66,6 @@ public class SalonsController : ControllerBase
             request.Price,
             request.FacebookLink,
             request.InstagramLink,
-            request.Pictures,
             request.GeorgianName,
             request.EnglishName,
             request.Email,

@@ -37,26 +37,7 @@ public class UpdateSalonHandler : IRequestHandler<UpdateSalonCommand, Result>
         salon.InstagramLink = req.InstagramLink ?? "";
         salon.WorkingHours = req.WorkingHours ?? "";
  
-        var newPictures = await _files.UploadAsync(req.Pictures, PicturesFolder, ct);
-        var oldPictures = new List<string>();
- 
-        if (newPictures.Count > 0)
-        {
-            oldPictures = salon.Pictures;
-            salon.Pictures = newPictures;
-        }
- 
-        try
-        {
             await _db.SaveChangesAsync(ct);
-        }
-        catch
-        {
-            _files.Delete(newPictures);
-            throw;
-        }
- 
-        _files.Delete(oldPictures);
  
         return Result.Success();
     }
