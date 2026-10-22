@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace Salons_Project.Application.Features.Upload_Picture;
 
-public class UploadService
+public class UploadService : IUploadService
 {
     private const string RootFolder = "uploads";
  

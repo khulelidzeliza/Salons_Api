@@ -5,6 +5,7 @@ using Salons_Project.Infrastructure.Auth.Jwt;
 using Salons_Project.Infrastructure.Smtp;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
+using Salons_Project.Application.Features.Upload_Picture;
 
 namespace Salons_Project.Infrastructure;
 
@@ -22,6 +23,7 @@ public static class DependencyInjection
         services.AddScoped<IEmailTemplatesService, EmailTemplateService>();
         services.AddScoped<ISmtpService , SmtpService>();
         services.AddScoped<IJwtService, JwtService>();
+        services.AddScoped<IUploadService, UploadService>();
         return services;
     }
 }
