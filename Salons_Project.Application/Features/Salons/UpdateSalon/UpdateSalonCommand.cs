@@ -1,7 +1,6 @@
-using MediatR;
-using Microsoft.AspNetCore.Http;
-using Salons_Project.Domain.Common.Results;
 using Salons_Project.Domain.Enums.Organization;
+using Salons_Project.Domain.Common.Results;
+using MediatR;
 
 namespace Salons_Project.Application.Features.Salons.UpdateSalon;
 
@@ -12,7 +11,8 @@ public sealed record UpdateSalonCommand(
     string? InstagramLink,
     string GeorgianName,
     string EnglishName,
-    string Email,
+    string? Email,
+    string? Description,
     string Location,
     string PhoneNumber,
     string WorkingHours

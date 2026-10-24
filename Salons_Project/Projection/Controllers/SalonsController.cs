@@ -28,6 +28,7 @@ public class SalonsController : ControllerBase
             req.Location,
             req.PhoneNumber,
             req.Email,
+            req.Description,
             req.Price,
             req.FacebookLink,
             req.InstagramLink,
@@ -69,6 +70,7 @@ public class SalonsController : ControllerBase
             request.GeorgianName,
             request.EnglishName,
             request.Email,
+            request.Description,
             request.Location,
             request.PhoneNumber,
             request.WorkingHours

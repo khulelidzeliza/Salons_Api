@@ -37,6 +37,7 @@ public class CreateSalonHandler : IRequestHandler<CreateSalonCommand, Result>
             Location = req.Location,
             PhoneNumber = req.PhoneNumber,
             Email = req.Email,
+            Description = req.Description,
             Price = req.Price,
             FacebookLink = req.FacebookLink ?? "",
             InstagramLink = req.InstagramLink ?? "",
