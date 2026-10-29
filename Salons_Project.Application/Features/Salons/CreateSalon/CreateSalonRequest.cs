@@ -12,7 +12,8 @@ public class CreateSalonRequest
     public List<IFormFile>? Pictures { get; set; }
     public string GeorgianName { get; set; }
     public string EnglishName { get; set; }
-    public string Email { get; set; } = string.Empty;
+    public string? Email { get; set; } = string.Empty;
+    public string? Description { get; set; } = string.Empty;
     public string Location { get; set; } = string.Empty;
     public string PhoneNumber { get; set; } = string.Empty;
     public string WorkingHours { get; set; } = string.Empty;

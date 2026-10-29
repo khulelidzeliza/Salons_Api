@@ -7,16 +7,15 @@ namespace Salons_Project.Domain.Models.Organization;
 
 public class Salon : BaseEntity
 {
-    public string GeorgianName { get; set; }
-    public string EnglishName { get; set; }
     public string? Email { get; set; }
     public string Location { get; set; }
+    public string EnglishName { get; set; }
     public string PhoneNumber { get; set; }
+    public string? Description { get; set; }
     public string WorkingHours { get; set; }
+    public string GeorgianName { get; set; }
     public string? FacebookLink { get; set; }
     public string? InstagramLink { get; set; }
-    public string? Description { get; set; }
-    
     public BudgetLevel Price { get; set; } = BudgetLevel.Medium;
 
     public int UserId { get; set; }

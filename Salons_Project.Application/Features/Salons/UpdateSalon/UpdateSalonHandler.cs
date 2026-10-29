@@ -32,6 +32,7 @@ public class UpdateSalonHandler : IRequestHandler<UpdateSalonCommand, Result>
         salon.Location = req.Location;
         salon.PhoneNumber = req.PhoneNumber;
         salon.Email = req.Email;
+        salon.Description = req.Description;
         salon.Price = req.Price;
         salon.FacebookLink = req.FacebookLink ?? "";
         salon.InstagramLink = req.InstagramLink ?? "";
