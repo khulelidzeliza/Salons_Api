@@ -23,8 +23,6 @@ public class AuthController : ControllerBase
         var cmd = new RegisterCommand(req.UserName, req.Email, req.Password, req.Age , req.PhoneNumber , req.Role);
 
         var result = await _mediator.Send(cmd, ct);
-
-
         return Ok(result);
     }
 
