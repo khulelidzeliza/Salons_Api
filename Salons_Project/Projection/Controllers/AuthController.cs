@@ -20,7 +20,7 @@ public class AuthController : ControllerBase
     [HttpPost("register")]
     public async Task<IActionResult> Register(RegisterRequest req, CancellationToken ct)
     {
-        var cmd = new RegisterCommand(req.UserName, req.Email, req.Password, req.Age , req.PhoneNumber , req.Role);
+        var cmd = new RegisterCommand(req.UserName, req.Email, req.Password, req.Role);
 
         var result = await _mediator.Send(cmd, ct);
         return Ok(result);
@@ -55,7 +55,7 @@ public class AuthController : ControllerBase
     }
 
 
-    [HttpPost("send-password-reset")]
+    [HttpPost("reset-password")]
     public async Task<IActionResult> SendPasswordReset(ResetPasswordRequest req, CancellationToken ct)
     {
         var cmd = new ResetPasswordCommand(req.Email);

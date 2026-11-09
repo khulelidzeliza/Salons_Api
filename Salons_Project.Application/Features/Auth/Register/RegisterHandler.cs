@@ -1,8 +1,4 @@
-﻿
-
-
-
-using MediatR;
+﻿using MediatR;
 using Salons_Project.Application.Common.Interfaces;
 using Salons_Project.Application.Features.Auth.Service;
 using Salons_Project.Domain.Common.Results;

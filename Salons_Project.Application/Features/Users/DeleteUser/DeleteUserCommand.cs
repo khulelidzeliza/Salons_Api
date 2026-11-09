@@ -1,10 +1,8 @@
-﻿
+﻿using MediatR;
+using Salons_Project.Domain.Common.Results;
 
+namespace Salons_Project.Application.Features.Users.DeleteUser;
 
-
-namespace Salons_Project.Application.Features.Users.DeleteUser
-{
-    public class DeleteUserCommand
-    {
-    }
-}
+public sealed record DeleteUserCommand(
+    int userId
+) : IRequest<Result>;

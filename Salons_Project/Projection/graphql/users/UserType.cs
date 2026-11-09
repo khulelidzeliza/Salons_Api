@@ -10,6 +10,8 @@ public sealed class UserType : ObjectType<User>
         descriptor.Field(e => e.Role);
         descriptor.Field(e => e.UserName);
         descriptor.Field(e => e.Gender);
+        descriptor.Field(e => e.Age);
+        descriptor.Field(e => e.City);
 
         descriptor
             .Field(e => e.Email)
