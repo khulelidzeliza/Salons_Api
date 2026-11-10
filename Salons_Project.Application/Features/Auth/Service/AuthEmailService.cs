@@ -51,7 +51,8 @@ public sealed class AuthEmailService : IAuthEmailService
     {
         var verification = PasswordVerification.Create();
 
-        // Generate password reset link
+        user.SetPasswordEmailVerification(verification);
+
         var token = _jwtTokenService.GeneratePasswordResetToken(user);
 
         var verificationLink = $"{_config["App:FrontendUrl"]}/auth/reset-password/{token}";

@@ -1,8 +1,4 @@
-﻿
-
-
-
-namespace Salons_Project.Domain.Common.Results;
+﻿namespace Salons_Project.Domain.Common.Results;
 
 
 public sealed record Errors(int Status, string Message)
@@ -32,4 +28,7 @@ public sealed record Errors(int Status, string Message)
 
     // doesnot exist
     public static Errors DoesNotExist() => new(409, "Resource does not exist");
+
+    // 410 - Gone (reset link expired, already used, or replaced by a newer one)
+    public static Errors LinkExpired() => new(410, "This reset link has expired or was already used.");
 }

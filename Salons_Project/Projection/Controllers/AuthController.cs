@@ -5,6 +5,7 @@ using Salons_Project.Application.Features.Auth.VerifyEmail;
 using Salons_Project.Application.Features.Auth.Register;
 using Salons_Project.Application.Features.Auth.Login;
 using Microsoft.AspNetCore.Mvc;
+using Salons_Project.Application.Features.Auth.ChangePassword;
 using Salons_Project.Application.Features.Auth.ResendVerificationCode;
 
 namespace Salons_Project.Api.Projection.Controllers;
@@ -62,5 +63,13 @@ public class AuthController : ControllerBase
         var result = await _mediator.Send(cmd, ct);
         return Ok(result);
     }
-
+    // Sets the new password (called from the page the email link opens)
+    [HttpPost("change-password")]
+    public async Task<IActionResult> ChangePassword(ChangePasswordRequest req, CancellationToken ct)
+    {
+        var cmd = new ChangePasswordCommand(req.Token, req.NewPassword, req.ConfirmPassword);
+        var result = await _mediator.Send(cmd, ct);
+        return Ok(result);
+    }
 }
+        

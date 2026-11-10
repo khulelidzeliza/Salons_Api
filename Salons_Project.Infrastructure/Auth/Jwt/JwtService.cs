@@ -4,6 +4,7 @@ using Salons_Project.Domain.Models.Users;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Salons_Project.Application.Common.Contracts;
 
 namespace Salons_Project.Infrastructure.Auth.Jwt;
 
@@ -66,6 +67,40 @@ public sealed class JwtService : IJwtService
         return new JwtSecurityTokenHandler().WriteToken(token);
     }
 
+    public PasswordResetClaims? ReadPasswordResetToken(string token)
+    {
+        if (string.IsNullOrWhiteSpace(token)) return null;
 
+        var parameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidIssuer = _s.Issuer,
+            ValidateAudience = true,
+            ValidAudience = _s.Audience,
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_s.Key)),
+            ValidateLifetime = true,
+            ClockSkew = TimeSpan.FromMinutes(1),
+        };
 
+        try
+        {
+            var principal = new JwtSecurityTokenHandler().ValidateToken(token, parameters, out _);
+
+            if (principal.FindFirst("pwd_reset")?.Value != "true") return null;
+
+            var id = principal.FindFirst(ClaimTypes.NameIdentifier)?.Value
+                     ?? principal.FindFirst(JwtRegisteredClaimNames.Sub)?.Value;
+            if (!int.TryParse(id, out var userId)) return null;
+
+            var email = principal.FindFirst(ClaimTypes.Email)?.Value
+                        ?? principal.FindFirst(JwtRegisteredClaimNames.Email)?.Value
+                        ?? string.Empty;
+            var code = principal.FindFirst("CODE")?.Value ?? string.Empty;
+
+            return new PasswordResetClaims(userId, email, code);
+        }
+        catch (SecurityTokenException) { return null; }
+        catch (ArgumentException) { return null; }
+    }
 }
